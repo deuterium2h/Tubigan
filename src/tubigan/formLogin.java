@@ -13,7 +13,7 @@ package tubigan;
 
 import com.alee.laf.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.event.*;
 import java.sql.*;
 import javax.swing.*;
 
@@ -23,7 +23,8 @@ public class formLogin extends javax.swing.JFrame {
     PreparedStatement  pst = null;
     ResultSet rs = null;
     
-    protected int debugCounter = 0;
+    private int debugCounter = 0;
+    private Timer lockTimer = new Timer(60, unlock());
     /**
      * Creates new form formLogin
      */
@@ -32,7 +33,7 @@ public class formLogin extends javax.swing.JFrame {
     }
 
     protected void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("aics150.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
     }
     
     protected void lock() {
@@ -40,9 +41,14 @@ public class formLogin extends javax.swing.JFrame {
         //if timer == 60 then unlock
     }
     
-    protected void unlock() {
-        
-        
+    private Action unlock() {
+        return new AbstractAction() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
     }
     
     protected void login() {
