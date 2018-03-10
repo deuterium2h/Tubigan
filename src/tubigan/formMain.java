@@ -37,29 +37,29 @@ public class formMain extends javax.swing.JFrame {
         pnlTab2 = new javax.swing.JPanel();
         pnl2 = new javax.swing.JPanel();
         pnlNotifications = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        lblSysDate = new javax.swing.JLabel();
+        lblTime = new javax.swing.JLabel();
+        lblSysTime = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
+        lblUserAccount = new javax.swing.JLabel();
+        lblLevel = new javax.swing.JLabel();
+        lvlUserLevel = new javax.swing.JLabel();
+        lblSysName = new javax.swing.JLabel();
         mnuMain = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        mnuiFile = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        mnuiEdit = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        mnuiAbout = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -86,7 +86,7 @@ public class formMain extends javax.swing.JFrame {
             .addComponent(pnl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        tabMain.addTab("tab1", pnlTab1);
+        tabMain.addTab("Records", pnlTab1);
 
         javax.swing.GroupLayout pnl2Layout = new javax.swing.GroupLayout(pnl2);
         pnl2.setLayout(pnl2Layout);
@@ -110,7 +110,7 @@ public class formMain extends javax.swing.JFrame {
             .addComponent(pnl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        tabMain.addTab("tab2", pnlTab2);
+        tabMain.addTab("Accounts", pnlTab2);
 
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
@@ -125,25 +125,29 @@ public class formMain extends javax.swing.JFrame {
 
         pnlNotifications.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Date : ");
+        lblDate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblDate.setLabelFor(lblSysDate);
+        lblDate.setText("Date : ");
 
-        jLabel3.setText("1/8/1997");
+        lblSysDate.setText("1/8/1997");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setText("Time :");
+        lblTime.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblTime.setLabelFor(lblSysTime);
+        lblTime.setText("Time :");
 
-        jLabel5.setText("1:08:28 AM");
+        lblSysTime.setText("1:08:28 AM");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("User :");
+        lblUsername.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblUsername.setLabelFor(lblUserAccount);
+        lblUsername.setText("User :");
 
-        jLabel7.setText("Tingczxcc");
+        lblUserAccount.setText("Tingczxcc");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel8.setText("Level :");
+        lblLevel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblLevel.setLabelFor(lvlUserLevel);
+        lblLevel.setText("Level :");
 
-        jLabel6.setText("Administrator");
+        lvlUserLevel.setText("Administrator");
 
         javax.swing.GroupLayout pnlNotificationsLayout = new javax.swing.GroupLayout(pnlNotifications);
         pnlNotifications.setLayout(pnlNotificationsLayout);
@@ -151,21 +155,21 @@ public class formMain extends javax.swing.JFrame {
             pnlNotificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNotificationsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addComponent(lblUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(47, 47, 47)
-                .addComponent(jLabel8)
+                .addComponent(lblUserAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
+                .addComponent(lblLevel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lvlUserLevel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(lblDate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(lblSysDate)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(lblTime)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(lblSysTime)
                 .addContainerGap())
         );
         pnlNotificationsLayout.setVerticalGroup(
@@ -173,40 +177,40 @@ public class formMain extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNotificationsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlNotificationsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel6))
+                    .addComponent(lblDate)
+                    .addComponent(lblSysDate)
+                    .addComponent(lblTime)
+                    .addComponent(lblSysTime)
+                    .addComponent(lblUsername)
+                    .addComponent(lblUserAccount)
+                    .addComponent(lblLevel)
+                    .addComponent(lvlUserLevel))
                 .addContainerGap())
         );
 
-        jLabel9.setBackground(new java.awt.Color(0, 0, 255));
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Crystal Clear System Sh*t");
-        jLabel9.setFocusable(false);
-        jLabel9.setOpaque(true);
+        lblSysName.setBackground(new java.awt.Color(0, 0, 255));
+        lblSysName.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lblSysName.setForeground(new java.awt.Color(255, 255, 255));
+        lblSysName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSysName.setText("Crystal Clear System Sh*t");
+        lblSysName.setFocusable(false);
+        lblSysName.setOpaque(true);
 
-        jMenu1.setText("File");
+        mnuiFile.setText("File");
 
         jMenuItem1.setText("Open");
-        jMenu1.add(jMenuItem1);
-        jMenu1.add(jSeparator1);
+        mnuiFile.add(jMenuItem1);
+        mnuiFile.add(jSeparator1);
 
         jMenuItem2.setText("Logout");
-        jMenu1.add(jMenuItem2);
+        mnuiFile.add(jMenuItem2);
 
         jMenuItem8.setText("Exit");
-        jMenu1.add(jMenuItem8);
+        mnuiFile.add(jMenuItem8);
 
-        mnuMain.add(jMenu1);
+        mnuMain.add(mnuiFile);
 
-        jMenu2.setText("Edit");
+        mnuiEdit.setText("Edit");
 
         jMenu3.setText("jMenu3");
 
@@ -216,21 +220,21 @@ public class formMain extends javax.swing.JFrame {
         jMenuItem6.setText("jMenuItem6");
         jMenu3.add(jMenuItem6);
 
-        jMenu2.add(jMenu3);
+        mnuiEdit.add(jMenu3);
 
         jMenuItem3.setText("jMenuItem3");
-        jMenu2.add(jMenuItem3);
+        mnuiEdit.add(jMenuItem3);
 
         jMenuItem4.setText("jMenuItem4");
-        jMenu2.add(jMenuItem4);
+        mnuiEdit.add(jMenuItem4);
 
         jMenuItem7.setText("jMenuItem7");
-        jMenu2.add(jMenuItem7);
+        mnuiEdit.add(jMenuItem7);
 
-        mnuMain.add(jMenu2);
+        mnuMain.add(mnuiEdit);
 
-        jMenu4.setText("About");
-        mnuMain.add(jMenu4);
+        mnuiAbout.setText("About");
+        mnuMain.add(mnuiAbout);
 
         setJMenuBar(mnuMain);
 
@@ -240,12 +244,12 @@ public class formMain extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnlNotifications, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblSysName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                .addComponent(lblSysName, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -295,19 +299,7 @@ public class formMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -317,7 +309,19 @@ public class formMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblLevel;
+    private javax.swing.JLabel lblSysDate;
+    private javax.swing.JLabel lblSysName;
+    private javax.swing.JLabel lblSysTime;
+    private javax.swing.JLabel lblTime;
+    public javax.swing.JLabel lblUserAccount;
+    private javax.swing.JLabel lblUsername;
+    private javax.swing.JLabel lvlUserLevel;
     private javax.swing.JMenuBar mnuMain;
+    private javax.swing.JMenu mnuiAbout;
+    private javax.swing.JMenu mnuiEdit;
+    private javax.swing.JMenu mnuiFile;
     private javax.swing.JPanel pnl1;
     private javax.swing.JPanel pnl2;
     private javax.swing.JPanel pnlMain;
