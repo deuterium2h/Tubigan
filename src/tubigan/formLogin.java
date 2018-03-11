@@ -22,7 +22,7 @@ public class formLogin extends javax.swing.JFrame {
     Connection conn = null;
     PreparedStatement  pst = null;
     ResultSet rs = null;
-    
+
     private int attemptCounter = 0;
     private Timer lockTimer = new Timer(1000, unlock());
     private int time = 0;
@@ -187,6 +187,7 @@ public class formLogin extends javax.swing.JFrame {
         lblPass.setLabelFor(txtPass);
         lblPass.setText("Password");
 
+        txtUser.setDocument(new JTextFieldLimit(20));
         txtUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         txtPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
