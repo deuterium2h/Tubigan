@@ -27,6 +27,7 @@ public class formLogin extends javax.swing.JFrame {
     private Timer lockTimer = new Timer(1000, unlock());
     private int time = 0;
     private int timeLimit = 50;
+
     /**
      * Creates new form formLogin
      */
@@ -39,6 +40,7 @@ public class formLogin extends javax.swing.JFrame {
     }
     
     protected void lock() {
+
         txtUser.setEnabled(false);
         txtPass.setEnabled(false);
         btnLogin.setEnabled(false);
@@ -47,6 +49,7 @@ public class formLogin extends javax.swing.JFrame {
     }
 
     private Action unlock() {
+
         return new AbstractAction() {
 
             @Override
@@ -83,6 +86,7 @@ public class formLogin extends javax.swing.JFrame {
     }
     
     protected void login() {
+
         String sql = "SELECT * FROM accounts WHERE username = ? AND password = ?;";
         String user = "dev";
         String pass = "berto";
