@@ -23,8 +23,10 @@ public class formLogin extends javax.swing.JFrame {
     PreparedStatement  pst = null;
     ResultSet rs = null;
     
-    private int debugCounter = 0;
-    private Timer lockTimer = new Timer(60, unlock());
+    private int attemptCounter = 0;
+    private Timer lockTimer = new Timer(1000, unlock());
+    private int time = 0;
+    private int timeLimit = 50;
     /**
      * Creates new form formLogin
      */
@@ -37,16 +39,45 @@ public class formLogin extends javax.swing.JFrame {
     }
     
     protected void lock() {
-        //components.enabled(false);
-        //if timer == 60 then unlock
+        txtUser.setEnabled(false);
+        txtPass.setEnabled(false);
+        btnLogin.setEnabled(false);
+        btnClear.setEnabled(false);
+        lockTimer.start();
     }
-    
+
     private Action unlock() {
         return new AbstractAction() {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+                if (time < timeLimit) {
+                    time++;
+                }
+                else if (timeLimit >= 5) {
+
+                    lockTimer.stop();
+                    JOptionPane.showMessageDialog(null,
+                            "Too many incorrect login attempts\n The system will now close.",
+                            "Too many incorrect attempts", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                    System.exit(0);
+                }
+                else {
+
+                    JOptionPane.showMessageDialog(null, 
+                            "You can now login.",
+                            "System Unlocked!", 
+                            JOptionPane.INFORMATION_MESSAGE);
+                    lockTimer.stop();
+                    txtUser.setEnabled(true);
+                    txtPass.setEnabled(true);
+                    btnLogin.setEnabled(true);
+                    btnClear.setEnabled(true);
+                    timeLimit += 5;
+                    time = 0;
+                }
             }
         };
     }
@@ -56,14 +87,15 @@ public class formLogin extends javax.swing.JFrame {
         String user = "dev";
         String pass = "berto";
         String type = "Developer";
-        int attemptCounter = 0;
 
         try {
+
             pst = conn.prepareStatement(sql);
             pst.setString(1, "txtUser.getText()");
             pst.setString(2, "txtPass.getText()");
             rs = pst.executeQuery();
             if (rs.next() && attemptCounter != 3) {
+
                 formMain MainForm = new formMain();
                 String alias = rs.getString("alias");
 //                MainForm.lblAlias.setText(alias);
@@ -77,6 +109,7 @@ public class formLogin extends javax.swing.JFrame {
                 dispose();
             }
             else if ((user.equals("txtUser.getText()") && (pass.equals("txtPass.getText()")))) {
+
                 formMain MainForm = new formMain();
 //                MainForm.lblAlias.setText(user);
 //                MainForm.lblType.setText(type);
@@ -86,25 +119,33 @@ public class formLogin extends javax.swing.JFrame {
                 dispose();
             }
             else if (attemptCounter%3 == 0) {
+
                 JOptionPane.showMessageDialog(null,
                         "You have made 3 incorrect login attempts\n"
                         + "Login will be locked for 60 seconds",
                         "Login Temporary Locked",
                         JOptionPane.WARNING_MESSAGE);
-//                lock();
+                lock();
+                unlock();
             }
             else {
+
                 attemptCounter++;
-                JOptionPane.showMessageDialog(null, "Incorrect login credentials",
+                JOptionPane.showMessageDialog(null, "Please check if CAPS LOCK is On.",
                         "Invalid login credentials", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
+
             System.err.println("Invalid SQL Syntax!");
             e.printStackTrace();
-        } catch (NullPointerException e) {
+        }
+        catch (NullPointerException e) {
+
             System.err.println("Error! See debug log for more details");
             e.printStackTrace();
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -127,11 +168,6 @@ public class formLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
-            }
-        });
 
         pnlLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -223,6 +259,7 @@ public class formLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+
         formMain MainForm = new formMain();
         MainForm.setLocationRelativeTo(null);
         MainForm.setVisible(true);
@@ -231,22 +268,11 @@ public class formLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+
         txtUser.setText(null);
         txtPass.setText(null);
         txtUser.requestFocus(true);
     }//GEN-LAST:event_btnClearActionPerformed
-
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        debugCounter++;
-        System.out.println(debugCounter);
-        System.out.println(debugCounter%10);
-        if (debugCounter%3 == 0) {
-            JOptionPane.showMessageDialog(null, "Hello, Your click count is: " + debugCounter);
-        }
-        if (debugCounter >= 30) {
-            System.err.println("TANGINA NAMAN! ANO NA?!");
-        }
-    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
@@ -279,6 +305,7 @@ public class formLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
+
                 WebLookAndFeel.install();
                 formLogin LoginForm = new formLogin();
                 LoginForm.setLocationRelativeTo(null);
