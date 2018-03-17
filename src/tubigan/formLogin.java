@@ -188,9 +188,9 @@ public class formLogin extends javax.swing.JFrame {
         lblPass.setText("Password");
 
         txtUser.setDocument(new JTextFieldLimit(20));
-        txtUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtUser.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
-        txtPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtPass.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
         lblUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblUser.setLabelFor(txtUser);
