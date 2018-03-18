@@ -9,6 +9,7 @@ package tubigan;
 //import com.alee.laf.*;
 
 import static java.lang.Thread.sleep;
+import java.text.*;
 import java.util.*;
 import java.util.logging.*;
 
@@ -30,25 +31,16 @@ public class formMain extends javax.swing.JFrame {
     private void currentDateAndTime(){
 
         Thread clock = new Thread() {
+
             public void run() {
+
                 while(true) {
  
-                    Calendar cal = new GregorianCalendar();
-                    int month = cal.get(Calendar.MONTH) + 1;
-                    int day  = cal.get(Calendar.DAY_OF_MONTH);
-                    int year = cal.get(Calendar.YEAR);
-                    lblSysDate.setText(year + "-" + month + "-" + day);
-                    int hours = cal.get(Calendar.HOUR);
-                    int minutes = cal.get(Calendar.MINUTE);
-                    int seconds = cal.get(Calendar.SECOND);
-                    int ap = cal.get(Calendar.AM_PM);
-
-                    if(ap == Calendar.AM) {
-                        lblSysTime.setText(hours + ":" + minutes + ":" + seconds + " AM");
-                    }
-                    else if (ap == Calendar.PM) {
-                        lblSysTime.setText(hours + ":" + minutes + ":" + seconds + " PM");
-                    }
+                    Date dt = new java.util.Date();
+                    SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm:ss a");
+                    SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
+                    lblSysTime.setText(sdfTime.format(dt));
+                    lblSysDate.setText(sdfDate.format(dt));
 
                     try {
                         sleep(1000);
@@ -56,7 +48,6 @@ public class formMain extends javax.swing.JFrame {
                     catch (InterruptedException ex) {
                         Logger.getLogger(formMain.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    
                 }
             }
         };
