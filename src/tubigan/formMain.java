@@ -8,6 +8,11 @@ package tubigan;
 
 //import com.alee.laf.*;
 
+import static java.lang.Thread.sleep;
+import java.util.*;
+import java.util.logging.*;
+
+
 /**
  *
  * @author DANEM682
@@ -19,8 +24,44 @@ public class formMain extends javax.swing.JFrame {
      */
     public formMain() {
         initComponents();
+        currentDateAndTime();
     }
 
+    private void currentDateAndTime(){
+
+        Thread clock = new Thread() {
+            public void run() {
+                while(true) {
+ 
+                    Calendar cal = new GregorianCalendar();
+                    int month = cal.get(Calendar.MONTH) + 1;
+                    int day  = cal.get(Calendar.DAY_OF_MONTH);
+                    int year = cal.get(Calendar.YEAR);
+                    lblSysDate.setText(year + "-" + month + "-" + day);
+                    int hours = cal.get(Calendar.HOUR);
+                    int minutes = cal.get(Calendar.MINUTE);
+                    int seconds = cal.get(Calendar.SECOND);
+                    int ap = cal.get(Calendar.AM_PM);
+
+                    if(ap == Calendar.AM) {
+                        lblSysTime.setText(hours + ":" + minutes + ":" + seconds + " AM");
+                    }
+                    else if (ap == Calendar.PM) {
+                        lblSysTime.setText(hours + ":" + minutes + ":" + seconds + " PM");
+                    }
+
+                    try {
+                        sleep(1000);
+                    }
+                    catch (InterruptedException ex) {
+                        Logger.getLogger(formMain.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                }
+            }
+        };
+        clock.start();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,6 +101,17 @@ public class formMain extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jPasswordField2 = new javax.swing.JPasswordField();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
         pnlNotifications = new javax.swing.JPanel();
         lblDate = new javax.swing.JLabel();
         lblSysDate = new javax.swing.JLabel();
@@ -92,13 +144,10 @@ public class formMain extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "record_id", "refno", "name", "address", "qty", "total", "date", "time"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -131,22 +180,16 @@ public class formMain extends javax.swing.JFrame {
         jButton3.setText("Cancel");
 
         jTextField1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        jTextField1.setText("jTextField1");
 
         jTextField2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        jTextField2.setText("jTextField2");
 
         jTextField3.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        jTextField3.setText("jTextField3");
 
         jTextField4.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        jTextField4.setText("jTextField4");
 
         jTextField5.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        jTextField5.setText("jTextField5");
 
         jTextField6.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
-        jTextField6.setText("jTextField6");
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         jLabel1.setText("jLabel1");
@@ -315,15 +358,92 @@ public class formMain extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jTextField7.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel8.setText("Alias");
+
+        jLabel9.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel9.setText("Password");
+
+        jPasswordField2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel11.setText("User Level");
+
+        jTextField8.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+
+        jComboBox1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Admin", "User" }));
+
+        jLabel10.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel10.setText("Confirm Password");
+
+        jLabel7.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        jLabel7.setText("Username");
+
+        jPasswordField1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPasswordField1)
+                    .addComponent(jComboBox1, 0, 320, Short.MAX_VALUE)))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 491, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnl2Layout = new javax.swing.GroupLayout(pnl2);
@@ -552,12 +672,18 @@ public class formMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -572,6 +698,9 @@ public class formMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -583,6 +712,8 @@ public class formMain extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblLevel;
     private javax.swing.JLabel lblSysDate;
