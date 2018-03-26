@@ -36,7 +36,7 @@ public class formMain extends javax.swing.JFrame {
 
                 while(true) {
  
-                    Date dt = new java.util.Date();
+                    Date dt = new Date();
                     SimpleDateFormat sdfTime = new SimpleDateFormat("hh:mm:ss a");
                     SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd");
                     lblSysTime.setText(sdfTime.format(dt));
@@ -70,22 +70,32 @@ public class formMain extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        cmdOrderAdd = new javax.swing.JButton();
+        cmdOrderUpdate = new javax.swing.JButton();
+        cmdOrderCancel = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtOrderRef = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
+        txtContactNumber = new javax.swing.JTextField();
+        txtGalQty = new javax.swing.JTextField();
+        txtJagQty = new javax.swing.JTextField();
+        lblOrderRef = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        lblAddress = new javax.swing.JLabel();
+        lblContactNumber = new javax.swing.JLabel();
+        lblGallonQty = new javax.swing.JLabel();
+        lblJagQty = new javax.swing.JLabel();
+        lblGallonPrice = new javax.swing.JLabel();
+        lblJagPrice = new javax.swing.JLabel();
+        txtGalPrice = new javax.swing.JTextField();
+        txtJagPrice = new javax.swing.JTextField();
+        lblGallonTotal = new javax.swing.JLabel();
+        lblJagTotal = new javax.swing.JLabel();
+        txtGalTotal = new javax.swing.JTextField();
+        txtJagTotal = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        cmdOrderSave = new javax.swing.JButton();
         pnlTab2 = new javax.swing.JPanel();
         pnl2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -161,44 +171,86 @@ public class formMain extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton1.setText("Add");
+        cmdOrderAdd.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        cmdOrderAdd.setText("Add");
+        cmdOrderAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdOrderAddActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton2.setText("Update");
+        cmdOrderUpdate.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        cmdOrderUpdate.setText("Update");
 
-        jButton3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jButton3.setText("Cancel");
+        cmdOrderCancel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        cmdOrderCancel.setText("Cancel");
 
-        jTextField1.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtOrderRef.setEditable(false);
+        txtOrderRef.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtName.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtAddress.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
-        jTextField4.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtContactNumber.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
-        jTextField5.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtGalQty.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
-        jTextField6.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtJagQty.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel1.setText("jLabel1");
+        lblOrderRef.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblOrderRef.setLabelFor(txtOrderRef);
+        lblOrderRef.setText("Order Reference");
 
-        jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel2.setText("jLabel2");
+        lblName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblName.setLabelFor(txtName);
+        lblName.setText("Name");
 
-        jLabel3.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel3.setText("jLabel3");
+        lblAddress.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblAddress.setLabelFor(txtAddress);
+        lblAddress.setText("Address");
 
-        jLabel4.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel4.setText("jLabel4");
+        lblContactNumber.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblContactNumber.setLabelFor(txtContactNumber);
+        lblContactNumber.setText("Contact Number");
 
-        jLabel5.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel5.setText("jLabel5");
+        lblGallonQty.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblGallonQty.setLabelFor(txtGalQty);
+        lblGallonQty.setText("Gallon Quantity");
 
-        jLabel6.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        jLabel6.setText("jLabel6");
+        lblJagQty.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblJagQty.setLabelFor(txtJagQty);
+        lblJagQty.setText("Jag Quantity");
+
+        lblGallonPrice.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblGallonPrice.setLabelFor(txtGalPrice);
+        lblGallonPrice.setText("Price");
+
+        lblJagPrice.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblJagPrice.setLabelFor(txtJagPrice);
+        lblJagPrice.setText("Price");
+
+        txtGalPrice.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtGalPrice.setText("25.00");
+
+        txtJagPrice.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        txtJagPrice.setText("25.00");
+
+        lblGallonTotal.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblGallonTotal.setLabelFor(txtGalTotal);
+        lblGallonTotal.setText("Total");
+
+        lblJagTotal.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblJagTotal.setLabelFor(txtJagTotal);
+        lblJagTotal.setText("Total");
+
+        txtGalTotal.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+
+        txtJagTotal.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Customer's Order Information");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -206,50 +258,86 @@ public class formMain extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(146, 146, 146)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField5)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField1)))
+                    .addComponent(lblJagQty)
+                    .addComponent(lblGallonQty)
+                    .addComponent(lblAddress)
+                    .addComponent(lblName)
+                    .addComponent(lblOrderRef)
+                    .addComponent(lblContactNumber))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtGalQty, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                            .addComponent(txtJagQty))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblGallonPrice)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtGalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblJagPrice)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtJagPrice)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblGallonTotal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtGalTotal))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblJagTotal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtJagTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(txtContactNumber)
+                    .addComponent(txtAddress)
+                    .addComponent(txtName)
+                    .addComponent(txtOrderRef, javax.swing.GroupLayout.Alignment.LEADING)))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addContainerGap()
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(txtOrderRef, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblOrderRef))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAddress))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblContactNumber))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                    .addComponent(txtGalQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGallonQty)
+                    .addComponent(lblGallonPrice)
+                    .addComponent(txtGalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblGallonTotal)
+                    .addComponent(txtGalTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtJagQty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblJagQty)
+                    .addComponent(lblJagPrice)
+                    .addComponent(txtJagPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblJagTotal)
+                    .addComponent(txtJagTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        cmdOrderSave.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        cmdOrderSave.setText("Save");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -258,25 +346,30 @@ public class formMain extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cmdOrderSave, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addComponent(cmdOrderAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmdOrderCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmdOrderUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmdOrderUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmdOrderAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmdOrderCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmdOrderSave, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -620,6 +713,13 @@ public class formMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmdOrderAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdOrderAddActionPerformed
+        // TODO add your handling code here:
+        Date dt = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        txtOrderRef.setText(sdf.format(dt) + "001");
+    }//GEN-LAST:event_cmdOrderAddActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -660,18 +760,14 @@ public class formMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton cmdOrderAdd;
+    private javax.swing.JButton cmdOrderCancel;
+    private javax.swing.JButton cmdOrderSave;
+    private javax.swing.JButton cmdOrderUpdate;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -697,16 +793,20 @@ public class formMain extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblContactNumber;
     private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblGallonPrice;
+    private javax.swing.JLabel lblGallonQty;
+    private javax.swing.JLabel lblGallonTotal;
+    private javax.swing.JLabel lblJagPrice;
+    private javax.swing.JLabel lblJagQty;
+    private javax.swing.JLabel lblJagTotal;
     private javax.swing.JLabel lblLevel;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblOrderRef;
     private javax.swing.JLabel lblSysDate;
     private javax.swing.JLabel lblSysName;
     private javax.swing.JLabel lblSysTime;
@@ -725,5 +825,15 @@ public class formMain extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTab1;
     private javax.swing.JPanel pnlTab2;
     private javax.swing.JTabbedPane tabMain;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtContactNumber;
+    private javax.swing.JTextField txtGalPrice;
+    private javax.swing.JTextField txtGalQty;
+    private javax.swing.JTextField txtGalTotal;
+    private javax.swing.JTextField txtJagPrice;
+    private javax.swing.JTextField txtJagQty;
+    private javax.swing.JTextField txtJagTotal;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtOrderRef;
     // End of variables declaration//GEN-END:variables
 }
